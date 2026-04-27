@@ -214,17 +214,7 @@ export default function HeroCanvas() {
       });
     }
 
-    // --- Scanning line (lab scanner effect) ---
-    function drawScanLine(time) {
-      const w = W(), h = H();
-      const y = ((time * 40) % (h + 100)) - 50;
-      const gradient = ctx.createLinearGradient(0, y - 30, 0, y + 30);
-      gradient.addColorStop(0, 'rgba(196, 30, 58, 0)');
-      gradient.addColorStop(0.5, 'rgba(196, 30, 58, 0.04)');
-      gradient.addColorStop(1, 'rgba(196, 30, 58, 0)');
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, y - 30, w, 60);
-    }
+    // --- Scanning line (lab scanner effect) removed ---
 
     // --- Main render loop ---
     function render() {

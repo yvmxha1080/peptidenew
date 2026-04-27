@@ -40,7 +40,7 @@ export default function ParticleField({ color = '#00b4d8', count = 80 }) {
         this.pulseSpeed = Math.random() * 0.02 + 0.005;
         this.pulsePhase = Math.random() * Math.PI * 2;
       }
-      update(t) {
+      update() {
         this.x += this.speedX;
         this.y += this.speedY;
         this.pulsePhase += this.pulseSpeed;
@@ -79,13 +79,11 @@ export default function ParticleField({ color = '#00b4d8', count = 80 }) {
     };
     const rgb = hexToRgb(color);
 
-    let t = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
-      t++;
 
       particles.forEach(p => {
-        const op = p.update(t);
+        const op = p.update();
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${rgb},${op})`;

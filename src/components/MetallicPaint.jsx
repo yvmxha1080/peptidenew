@@ -335,7 +335,7 @@ export default function MetallicPaint({
     canvas.width = side;
     canvas.height = side;
     gl.viewport(0, 0, side, side);
-    setReady(true);
+    setTimeout(() => setReady(true), 0);
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       if (textureRef.current && glRef.current) glRef.current.deleteTexture(textureRef.current);
@@ -344,7 +344,7 @@ export default function MetallicPaint({
 
   useEffect(() => {
     if (!ready || !imageSrc) return;
-    setTextureReady(false);
+    setTimeout(() => setTextureReady(false), 0);
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload = () => { const imgData = processImage(img); uploadTexture(imgData); setTextureReady(true); };
